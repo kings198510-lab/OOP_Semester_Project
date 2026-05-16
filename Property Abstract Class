@@ -1,0 +1,44 @@
+public abstract class Property {
+    private String propertyId;
+    private String title;
+    private String location;
+    private double price;
+    private double area;
+    
+    public void setPropertyId(String propertyId){
+        this.propertyId=propertyId;
+    }
+    public String getPropertyId(){
+        return propertyId;
+    }
+    
+    public void setTitle(String title){
+        this.title=title;
+    }
+    public String getTitle(){
+        return title;
+    }
+    
+    public void setLocation(String location){
+        this.location=location;
+    }
+    public String getLocation(){
+        return location;
+    }
+    
+    public void setPrice(double price){
+        this.price=price;
+    }
+    public double getPrice(){
+        return price;
+    }
+    
+    public void setArea(double area){
+        this.area=area;
+    }
+    public double getArea(){
+        return area;
+    }
+    
+    
+}

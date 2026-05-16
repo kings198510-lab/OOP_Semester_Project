@@ -4,13 +4,14 @@ public class House extends Property{
     private boolean garageStatus;
     private boolean basementStatus;
 
-    public House(int rooms , int floors , boolean garageStatus , boolean basementStatus){
-        super(String propertyId , String title , String location , double price , double area);
+    public House(String propertyId,String title,String location,double price,double area,int rooms,int floors,boolean garageStatus,boolean basementStatus){
+        super(propertyId,title,location,price,area);
         this.rooms=rooms;
         this.floors=floors;
         this.garageStatus=garageStatus;
         this.basementStatus=basementStatus;
     }
+    
     
     public void setRooms(int rooms){
         this.rooms=rooms;

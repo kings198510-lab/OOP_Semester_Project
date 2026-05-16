@@ -1,0 +1,56 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
+public abstract class User {
+    private String userId;
+    private String name;
+    private String email;
+    private String password;
+    private String phoneNo;
+    
+    
+    public void setUserId(String userId){
+        this.userId=userId;
+    }
+    public String getUserId(){
+        return userId;
+    }
+    
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getName(){
+        return name;
+    }
+    
+    public void setEmail(String email){
+        this.email=email;
+    }
+    public String getEmail(){
+        return email;
+    }
+    
+    public void setPassword(String password){
+        this.password=password;
+    }
+    public String getPassword(){
+        return password;
+    }
+    
+    public void setPhoneNo(String phoneNo){
+        this.phoneNo=phoneNo;
+    }
+    public String getphoneNo(){
+        return phoneNo;
+    }
+    
+    
+    
+}

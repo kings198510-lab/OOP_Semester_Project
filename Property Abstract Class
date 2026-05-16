@@ -4,6 +4,14 @@ public abstract class Property {
     private String location;
     private double price;
     private double area;
+
+    public Property(String propertyId , String title , String location , double price , double area){
+        this.propertyId=propertyId;
+        this.title=title;
+        this.location=location;
+        this.price=price;
+        this.area=area;
+    }
     
     public void setPropertyId(String propertyId){
         this.propertyId=propertyId;

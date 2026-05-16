@@ -2,7 +2,6 @@ public class House extends Property{
     private int rooms;
     private int floors;
     private boolean garageStatus;
-    private double garageSize;
     private boolean basementStatus;
     
     public void setRooms(int rooms){
@@ -24,13 +23,6 @@ public class House extends Property{
     }
     public boolean getGarageStatus(){
         return garageStatus;
-    }
-    
-    public void setGarageSize(double garageSize){
-        this.garageSize=garageSize;
-    }
-    public double getGarageSize(){
-        return garageSize;
     }
     
     public void setBasementStatus(boolean basementStatus){

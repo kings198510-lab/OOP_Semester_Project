@@ -1,0 +1,18 @@
+public class CommercialProperty extends Property {
+    private String businessType;
+    private boolean parkingSpace;
+    
+    public void setBusinessType(String businessType){
+        this.businessType=businessType;
+    }
+    public String getBusinessType(){
+        return businessType;
+    }
+    
+    public void setParkingSpace(boolean parkingSpace){
+        this.parkingSpace=parkingSpace;
+    }
+    public boolean getParkingSpace(){
+        return parkingSpace;
+    }
+}

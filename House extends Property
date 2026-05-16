@@ -1,0 +1,44 @@
+public class House extends Property{
+    private int rooms;
+    private int floors;
+    private boolean garageStatus;
+    private double garageSize;
+    private boolean basementStatus;
+    
+    public void setRooms(int rooms){
+        this.rooms=rooms;
+    }
+    public int getRooms(){
+        return rooms;
+    }
+    
+    public void setFloors(int floors){
+        this.floors=floors;
+    }
+    public int getFloors(){
+        return floors;
+    }
+    
+    public void setGarageStatus(boolean garageStatus){
+        this.garageStatus=garageStatus;
+    }
+    public boolean getGarageStatus(){
+        return garageStatus;
+    }
+    
+    public void setGarageSize(double garageSize){
+        this.garageSize=garageSize;
+    }
+    public double getGarageSize(){
+        return garageSize;
+    }
+    
+    public void setBasementStatus(boolean basementStatus){
+        this.basementStatus=basementStatus;
+    }
+    public boolean getBasementStatus(){
+        return basementStatus;
+    }
+    
+    
+}

@@ -1,0 +1,20 @@
+public class Apartment extends Property{
+    private int floorNo;
+    private double noOfRooms;
+    
+    public void setFloorNo(int floorNo){
+        this.floorNo=floorNo;
+    }
+    public int getFloorNo(){
+        return floorNo;
+    }
+    
+    public void setNoOfRooms(double noOfRooms){
+        this.noOfRooms=noOfRooms;
+    }
+    public double getNoOfRooms(){
+        return noOfRooms;
+    }
+
+
+}

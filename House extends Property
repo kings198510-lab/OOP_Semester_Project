@@ -5,6 +5,7 @@ public class House extends Property{
     private boolean basementStatus;
 
     public House(int rooms , int floors , boolean garageStatus , boolean basementStatus){
+        super(String propertyId , String title , String location , double price , double area);
         this.rooms=rooms;
         this.floors=floors;
         this.garageStatus=garageStatus;

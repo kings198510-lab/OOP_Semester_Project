@@ -2,7 +2,8 @@ public class CommercialProperty extends Property {
     private String businessType;
     private boolean parkingSpace;
 
-    public CommercialProperty(String businessType , boolean parkingSpace){
+    public CommercialProperty(String propertyId,String title,String location,double price,double area,String businessType,boolean parkingSpace){
+        super(propertyId,title,location,price,area);
         this.businessType=businessType;
         this.parkingSpace=parkingSpace;
     }

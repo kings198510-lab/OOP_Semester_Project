@@ -1,0 +1,21 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
+import java.util.*;
+public class PropertyManager {
+    private ArrayList<Property> propertyList;
+    
+    public ArrayList<Property> getPropertyList(){
+        return propertyList;
+    }
+    public void setPropertyList(ArrayList<Property> propertyList){
+        this.propertyList=propertyList;
+    }
+}

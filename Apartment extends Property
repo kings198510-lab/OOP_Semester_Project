@@ -3,6 +3,7 @@ public class Apartment extends Property{
     private double noOfRooms;
 
     public Apartment(int floorNo , double noOfRooms){
+        super(String propertyId , String title , String location , double price , double area);
         this.floorNo=floorNo;
         this.noOfRooms=noOfRooms;
     }

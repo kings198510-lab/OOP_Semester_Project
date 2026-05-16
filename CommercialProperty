@@ -1,6 +1,11 @@
 public class CommercialProperty extends Property {
     private String businessType;
     private boolean parkingSpace;
+
+    public CommercialProperty(String businessType , boolean parkingSpace){
+        this.businessType=businessType;
+        this.parkingSpace=parkingSpace;
+    }
     
     public void setBusinessType(String businessType){
         this.businessType=businessType;
@@ -15,4 +20,6 @@ public class CommercialProperty extends Property {
     public boolean getParkingSpace(){
         return parkingSpace;
     }
+
+    
 }

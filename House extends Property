@@ -3,6 +3,13 @@ public class House extends Property{
     private int floors;
     private boolean garageStatus;
     private boolean basementStatus;
+
+    public House(int rooms , int floors , boolean garageStatus , boolean basementStatus){
+        this.rooms=rooms;
+        this.floors=floors;
+        this.garageStatus=garageStatus;
+        this.basementStatus=basementStatus;
+    }
     
     public void setRooms(int rooms){
         this.rooms=rooms;

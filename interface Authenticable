@@ -1,0 +1,4 @@
+public interface Authenticable {
+    boolean login(String userName,String password);
+    void logout();
+}

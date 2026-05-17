@@ -1,0 +1,128 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
+import java.util.*;
+
+public class Buyer extends User{
+    public Buyer(String userId,String name,String email,String password,String phoneNo){
+        super(userId,name,email,password,phoneNo);
+    }
+    
+    
+    private ArrayList<Property> favourite=new ArrayList<>();
+    private ArrayList<Property> bought=new ArrayList<>();
+    private ArrayList<Property> rent=new ArrayList<>();
+    
+    public void setFavourite(ArrayList<Property> favourite){
+        this.favourite=favourite;
+    }
+    public ArrayList<Property> getFavourite(){
+        return favourite;
+    }
+    
+    public void displayMenu(){
+        System.out.println("1.Search Property");
+        System.out.println("2.View All Property");
+        System.out.println("3.Buy Property");
+        System.out.println("4.Rent Property");
+        System.out.println("5.View Favorite");
+        System.out.println("6.Contact Agent");
+        System.out.println("7.View Profile");
+        System.out.println("8.Update Profile");
+        System.out.println("9.Logout");
+    }
+    public void viewProfile(){
+        System.out.println("UserId : "+super.getUserId());
+        System.out.println("Name : "+super.getName());
+        System.out.println("Email : "+super.getEmail());
+        System.out.println("Password : "+super.getPassword());
+        System.out.println("Phone Number : "+super.getphoneNo());
+        
+    }
+    public void updateProfile(String name,String password,String email,String phoneNo){
+        super.setName(name);
+        super.setPassword(password);
+        super.setEmail(email);
+        super.setPhoneNo(phoneNo);
+    }
+    
+    
+    public ArrayList<Property> search(ArrayList<Property> propertyList,String location,double maxPrice,double minPrice,String type){
+        ArrayList<Property> found=new ArrayList<>();
+        
+        for(int i=0;i<propertyList.size();i++){
+            if(((propertyList.get(i).getLocation().equalsIgnoreCase(location)))&&
+                    ((propertyList.get(i).getPrice())>=minPrice)&&
+                    ((propertyList.get(i).getPrice())<=maxPrice)&&
+                    (propertyList.get(i).getClass().getSimpleName()).equalsIgnoreCase(type)){
+                
+                
+                found.add(propertyList.get(i));
+            }
+        }
+        
+        return found;
+    }
+    
+    public void viewAllProperty(ArrayList<Property> propertyList){
+        
+        for(int i=0;i<propertyList.size();i++){
+            
+                System.out.println("");
+                propertyList.get(i).displayDetails();
+                System.out.println("__________________");
+            
+        }
+    }
+    
+    public void buyProperty(ArrayList<Property> propertyList,String propertyId){
+        for(int i=0;i<propertyList.size();i++){
+            if(((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId))&&((propertyList.get(i).getIsAvailable())==true)){
+                bought.add(propertyList.get(i));
+                propertyList.get(i).setIsAvailable(false);
+                System.out.println("Property Bought");
+                return;
+            }
+        }
+        System.out.println("Property Not Found");
+    }
+    
+    public void rentProperty(ArrayList<Property> propertyList,String propertyId){
+        for(int i=0;i<propertyList.size();i++){
+            if(((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId))&&((propertyList.get(i).getRented())==false)){
+                rent.add(propertyList.get(i));
+                propertyList.get(i).setRented(true);
+                System.out.println("Property Taken in Rent");
+                return;
+            }
+        }
+        System.out.println("Property Not Found");
+    }
+    
+    public void viewFavourite(){
+        if(favourite.isEmpty()){
+            System.out.println("No favourite Property");
+        }
+        
+        for(int i=0;i<favourite.size();i++){
+            System.out.println("");
+            favourite.get(i).displayDetails();
+            System.out.println("__________________");
+        }
+    }
+    
+    public void contactAgent(ArrayList<Agent> agent){
+        for(int i=0;i<agent.size();i++){
+            System.out.println("");
+            agent.get(i).displayInfo();
+            System.out.println("___________________");
+        }
+    }
+}

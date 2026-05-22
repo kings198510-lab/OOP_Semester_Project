@@ -10,15 +10,31 @@ package gui.real_estate_property_management_system;
  */
 public class RentalAgreement {
     private String agreementId;
+    private String propertyId;
     private String startDate;
     private String endDate;
     private double rentAmount;
+    
+    public RentalAgreement(String agreementId,String startDate,String endDate,double rentAmount,String propertyId){
+        this.agreementId=agreementId;
+        this.startDate=startDate;
+        this.endDate=endDate;
+        this.rentAmount=rentAmount;
+        this.propertyId=propertyId;
+    }
     
     public void setAgreementId(String agreementId){
         this.agreementId=agreementId;
     }
     public String getAgreementId(){
         return agreementId;
+    }
+    
+    public void setPropertyId(String propertyId){
+        this.propertyId=propertyId;
+    }
+    public String getPropertyId(){
+        return propertyId;
     }
     
     public void setStartDate(String startDate){
@@ -42,6 +58,10 @@ public class RentalAgreement {
         return rentAmount;
     }
     
-    
+    public void displayDetails(){
+        System.out.println("Agreement ID : "+agreementId);
+        System.out.println("Start Date : "+startDate);
+        System.out.println("End Date : "+endDate);
+        System.out.println("Rent Amount : "+rentAmount);
+    }
 }
-

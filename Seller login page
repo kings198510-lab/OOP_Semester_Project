@@ -1,0 +1,83 @@
+package gui.real_estate_property_management_system;
+
+import javafx.application.*;
+import javafx.geometry.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import javafx.scene.text.*;
+import javafx.scene.paint.*;
+import javafx.scene.layout.*;
+
+/**
+ * JavaFX App
+ */
+public class App extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        
+        Label seller = new Label("Seller");
+        seller.setFont(Font.font("Times New Roman",FontWeight.BOLD,35));      
+        seller.setTextFill(Color.WHITE);
+        
+        Label loginHS = new Label("Login");
+        loginHS.setFont(Font.font("Arial",FontWeight.BOLD,24));
+        
+        Label NameS = new Label("User Name :");
+        TextField nameS = new TextField();
+        nameS.setMaxWidth(170);
+        
+        Label PassS = new Label("Password :  ");
+        PasswordField passS = new PasswordField();
+        passS.setMaxWidth(170);
+        
+        Button loginS = new Button("Login");
+        loginS.setMaxWidth(220);
+        loginS.setPadding(new Insets(9));
+        loginS.setStyle("-fx-background-color: #000000;" +"-fx-text-fill: white;" +"-fx-background-radius: 100;");
+        
+        Button createS = new Button("Create new account");
+        createS.setMaxWidth(220);
+        createS.setPadding(new Insets(9));
+        createS.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        HBox TopS = new HBox();
+        TopS.getChildren().addAll(seller);
+        TopS.setStyle("-fx-background-color: #4682B4");
+        TopS.setAlignment(Pos.CENTER);
+        TopS.setPadding(new Insets(15));
+        
+        HBox name_S = new HBox(10);
+        name_S.getChildren().addAll(NameS,nameS);
+        name_S.setAlignment(Pos.CENTER);
+        
+        HBox pass_S = new HBox(10);
+        pass_S.getChildren().addAll(PassS,passS);
+        pass_S.setAlignment(Pos.CENTER);
+        
+        VBox FormS = new VBox(20);
+        FormS.getChildren().addAll(loginHS,name_S,pass_S,loginS,createS);
+        FormS.setAlignment(Pos.TOP_CENTER);
+        FormS.setPadding(new Insets(60,0,0,0));
+        FormS.setMaxWidth(300);
+        FormS.setMaxHeight(340);
+        FormS.setStyle("-fx-background-color: white;" + "-fx-border-color: black;" + "-fx-border-width: 2;" + "-fx-border-radius: 20;" + "-fx-background-radius: 20;");
+        
+        BorderPane root = new BorderPane();
+        root.setTop(TopS);
+        root.setCenter(FormS);
+        
+        Scene scene=new Scene(root,900,500);
+        stage.setScene(scene);
+        stage.setTitle("Real Estate Management System");   
+        stage.show();
+        
+        
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+}

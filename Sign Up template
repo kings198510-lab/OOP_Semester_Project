@@ -1,0 +1,95 @@
+package gui.real_estate_property_management_system;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.paint.Color;
+import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+
+/**
+ * JavaFX App
+ */
+public class App extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        
+        Label heading = new Label("Real Estate Management System");
+        heading.setFont(Font.font("Times New Roman",FontWeight.BOLD,30));        
+        heading.setTextFill(Color.WHITE);
+        
+        Button contact = new Button("Contact Us");
+        contact.setStyle("-fx-border-color: transparent;");
+        contact.setStyle("-fx-background-color: #3F6F99");
+        contact.setTextFill(Color.WHITE);
+        Button help = new Button("Help");
+        help.setStyle("-fx-border-color: transparent;");
+        help.setStyle("-fx-background-color: #3F6F99");
+        help.setTextFill(Color.WHITE);
+        
+        Label signIn = new Label("Sign In As :");
+        signIn.setFont(Font.font("Times New Roman",FontWeight.BOLD,24));
+        
+        Button buyer = new Button("Buyer");
+        buyer.setMaxWidth(400);
+        buyer.setFont(Font.font("Times New Roman",FontWeight.BOLD,15));
+        buyer.setPadding(new Insets(10));
+        Button seller = new Button("Seller");
+        seller.setMaxWidth(400);
+        seller.setFont(Font.font("Times New Roman",FontWeight.BOLD,15));
+        seller.setPadding(new Insets(10));
+        Button agent = new Button("Agent");
+        agent.setMaxWidth(400);
+        agent.setMaxWidth(400);
+        agent.setFont(Font.font("Times New Roman",FontWeight.BOLD,15));
+        agent.setPadding(new Insets(10));
+        Button admin = new Button("Admin");
+        admin.setMaxWidth(400);
+        admin.setMaxWidth(400);
+        admin.setFont(Font.font("Times New Roman",FontWeight.BOLD,15));
+        admin.setPadding(new Insets(10));
+        
+        HBox headBar = new HBox();
+        headBar.getChildren().addAll(heading);
+        headBar.setAlignment(Pos.CENTER);
+        headBar.setStyle("-fx-background-color: #4682B4;");
+        headBar.setPadding(new Insets(20));
+        
+        HBox navBar = new HBox(20);
+        navBar.getChildren().addAll(contact,help);
+        navBar.setAlignment(Pos.CENTER_RIGHT);
+        navBar.setStyle("-fx-background-color: #3F6F99;");
+        navBar.setPadding(new Insets(7));
+        
+        VBox Top = new VBox();
+        Top.getChildren().addAll(headBar,navBar);
+        Top.setAlignment(Pos.CENTER);
+        Top.setPadding(new Insets(15));
+        
+        VBox body = new VBox(20);
+        body.getChildren().addAll(signIn,buyer,seller,agent,admin);
+        body.setAlignment(Pos.CENTER);
+        
+        BorderPane root = new BorderPane();
+        root.setTop(Top);
+        root.setCenter(body);
+        
+        Scene scene=new Scene(root,900,500);
+        stage.setScene(scene);
+        stage.setTitle("Real Estate Management System");   
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+}

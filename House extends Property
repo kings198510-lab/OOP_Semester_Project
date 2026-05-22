@@ -1,17 +1,26 @@
-public class House extends Property{
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
+public class House extends Property {
     private int rooms;
     private int floors;
     private boolean garageStatus;
     private boolean basementStatus;
-
-    public House(String propertyId,String title,String location,double price,double area,int rooms,int floors,boolean garageStatus,boolean basementStatus){
-        super(propertyId,title,location,price,area);
+    
+    public House(String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,int rooms,int floors,boolean garageStatus,boolean basementStatus){
+        super(propertyId,title,location,price,area,isAvailable,rented);
         this.rooms=rooms;
         this.floors=floors;
         this.garageStatus=garageStatus;
         this.basementStatus=basementStatus;
     }
-    
     
     public void setRooms(int rooms){
         this.rooms=rooms;
@@ -41,5 +50,10 @@ public class House extends Property{
         return basementStatus;
     }
     
-    
+    public void update(int rooms,int floors,boolean garageStatus,boolean basementStatus){
+        this.rooms=rooms;
+        this.floors=floors;
+        this.garageStatus=garageStatus;
+        this.basementStatus=basementStatus;
+    }
 }

@@ -1,0 +1,34 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
+public class PropertyVisit {
+    private String date;
+    private String propertyId;
+    
+    public PropertyVisit(String date,String propertyId){
+        this.date=date;
+        this.propertyId=propertyId;
+    }
+    
+    public void setDate(String date){
+        this.date=date;
+    }
+    public String getDate(){
+        return date;
+    }
+    
+    public void setPropertyId(String propertyId){
+        this.propertyId=propertyId;
+    }
+    public String getPropertyId(){
+        return propertyId;
+    }
+    
+}

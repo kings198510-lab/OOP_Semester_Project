@@ -15,7 +15,13 @@ public abstract class User {
     private String password;
     private String phoneNo;
     
-    
+    public User(String userId,String name,String email,String password,String phoneNo){
+        this.userId=userId;
+        this.name=name;
+        this.password=password;
+        this.email=email;
+        this.phoneNo=phoneNo;
+    }
     public void setUserId(String userId){
         this.userId=userId;
     }
@@ -51,6 +57,25 @@ public abstract class User {
         return phoneNo;
     }
     
+    public void viewProfile(){
+        System.out.println("UserId : "+getUserId());
+        System.out.println("Name : "+getName());
+        System.out.println("Email : "+getEmail());
+        System.out.println("Password : "+getPassword());
+        System.out.println("Phone Number : "+getphoneNo());
+        
+    }
+    
+    
+    
+    public abstract void displayMenu();
+    
+    public void updateProfile(String name,String password,String email,String phoneNo){
+            this.name=name;
+            this.email=email;
+            this.password=password;
+            this.phoneNo=phoneNo;
+        }    
     
     
 }

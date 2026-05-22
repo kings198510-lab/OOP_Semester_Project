@@ -12,7 +12,12 @@ import java.util.*;
 
 public class Agent extends User {
     private String agencyName;
-    private ArrayList<Property> listedProperties;
+    private ArrayList<Property> assignedProperties=new ArrayList<>();
+    
+    public Agent(String userId,String name,String email,String password,String phoneNo,String agencyName){
+        super(userId,name,email,password,phoneNo);
+        this.agencyName=agencyName;
+    }
     
     public void setAgencyName(String agencyName){
         this.agencyName=agencyName;
@@ -22,10 +27,81 @@ public class Agent extends User {
     }
     
     public void setListedProperties(ArrayList<Property> listedProperties){
-        this.listedProperties=listedProperties;
+        this.assignedProperties=listedProperties;
     }
     public ArrayList<Property> getListedProperties(){
-        return listedProperties;
+        return assignedProperties;
     }
     
+     public void displayMenu(){
+         System.out.println("1.View Assigned Properties");
+         System.out.println("2.Manage Buyer Request");
+         System.out.println("3.Schedule Property Visit");
+         System.out.println("4.Generate Rental Agreement");
+         System.out.println("5.Calculate Commission");
+         System.out.println("6.Logout");
+    }
+    public void viewProfile(){
+        System.out.println("UserId : "+super.getUserId());
+        System.out.println("Name : "+super.getName());
+        System.out.println("Email : "+super.getEmail());
+        System.out.println("Password : "+super.getPassword());
+        System.out.println("Phone Number : "+super.getphoneNo());
+        System.out.println("Agency Name : "+agencyName);
+    }
+    
+    public void displayInfo(){
+        System.out.println("Name : "+super.getName());
+        System.out.println("Email : "+super.getEmail());
+        System.out.println("Phone Number : "+super.getphoneNo());
+    }
+    
+    public void viewAssignedProperties(){
+        if(assignedProperties.isEmpty()){
+            System.out.println("No Property");
+            return;
+        }
+        for(int i=0;i<assignedProperties.size();i++){
+            System.out.println("");
+            assignedProperties.get(i).displayDetails();
+            System.out.println("____________");
+        }
+    }
+    
+    public void propertyVisit(String date,String propertyId,ArrayList<Property> propertyList,ArrayList<PropertyVisit> visits){
+        for(int i=0;i<propertyList.size();i++){
+            if((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                PropertyVisit pv=new PropertyVisit(date,propertyId);
+                visits.add(pv);
+                return;
+            }
+        }
+        System.out.println("No property Found!");
+    }
+    
+    public void generateRentalAgreement(ArrayList<Property> propertyList,ArrayList<RentalAgreement> rentalAgreement,String agreementId,String startDate,String endDate,double rentAmount,String propertyId){
+        for(int i=0;i<propertyList.size();i++){
+            if((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+               RentalAgreement r=new RentalAgreement(agreementId,startDate,endDate,rentAmount,propertyId); 
+               rentalAgreement.add(r);
+               
+                System.out.println("");
+                r.displayDetails();
+                propertyList.get(i).displayDetails();
+                return;
+            }
+        }
+       
+    }
+    
+    public double calculateCommission(ArrayList<Property> propertyList,String propertyId){
+        for(int i=0;i<propertyList.size();i++){
+            if((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                double commission;
+                commission=((propertyList.get(i).getPrice())*0.15);
+                return commission;
+            }
+        }
+        return 0;
+    }
 }

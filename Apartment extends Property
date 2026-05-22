@@ -1,9 +1,19 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
 public class Apartment extends Property{
     private int floorNo;
     private double noOfRooms;
-
-    public Apartment(String propertyId,String title,String location,double price,double area,int floorNo,double noOfRooms){
-        super(propertyId,title,location,price,area);
+    
+    public Apartment(String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,int floorNo,double noOfRooms){
+        super(propertyId,title,location,price,area,isAvailable,rented);
         this.floorNo=floorNo;
         this.noOfRooms=noOfRooms;
     }
@@ -21,6 +31,9 @@ public class Apartment extends Property{
     public double getNoOfRooms(){
         return noOfRooms;
     }
-
-
+    
+    public void update(int floorNo,double noOfRooms){
+        this.floorNo=floorNo;
+        this.noOfRooms=noOfRooms;
+    }
 }

@@ -1,16 +1,31 @@
-public abstract class Property {
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package gui.real_estate_property_management_system;
+
+/**
+ *
+ * @author Shahzeb
+ */
+public abstract class Property implements Display {
     private String propertyId;
     private String title;
     private String location;
     private double price;
     private double area;
-
-    public Property(String propertyId , String title , String location , double price , double area){
+    private boolean isAvailable;
+    private boolean rented;
+    
+    
+    public Property(String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented){
         this.propertyId=propertyId;
-        this.title=title;
         this.location=location;
+        this.title=title;
         this.price=price;
         this.area=area;
+        this.isAvailable=isAvailable;
+        this.rented=rented;
     }
     
     public void setPropertyId(String propertyId){
@@ -48,5 +63,36 @@ public abstract class Property {
         return area;
     }
     
+    public void setIsAvailable(boolean isAvailable){
+        this.isAvailable=isAvailable;
+    }
+    public boolean getIsAvailable(){
+        return isAvailable;
+    }
     
+    public void setRented(boolean rented){
+        this.rented=rented;
+    }
+    public boolean getRented(){
+        return rented;
+    }
+    
+    public void displayDetails(){
+        System.out.println("Property ID : "+propertyId);
+        System.out.println("Title : "+title);
+        System.out.println("Location : "+location);
+        System.out.println("Price "+price);
+        System.out.println("Area "+area);
+        System.out.println("IsAvailable "+isAvailable);
+        System.out.println("Rented "+rented);
+    }
+    
+    public void update(String title,String location,double price,double area,boolean isAvailable,boolean rented){
+        this.title=title;
+        this.area=area;
+        this.location=location;
+        this.price=price;
+        this.rented=rented;
+        this.isAvailable=isAvailable;
+    }
 }

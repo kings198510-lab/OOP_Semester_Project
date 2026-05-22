@@ -42,11 +42,9 @@ public class App extends Application {
         seller.setPadding(new Insets(10));
         Button agent = new Button("Agent");
         agent.setMaxWidth(400);
-        agent.setMaxWidth(400);
         agent.setFont(Font.font("Times New Roman",FontWeight.BOLD,15));
         agent.setPadding(new Insets(10));
         Button admin = new Button("Admin");
-        admin.setMaxWidth(400);
         admin.setMaxWidth(400);
         admin.setFont(Font.font("Times New Roman",FontWeight.BOLD,15));
         admin.setPadding(new Insets(10));

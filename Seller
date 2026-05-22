@@ -10,7 +10,8 @@ package gui.real_estate_property_management_system;
  */
 import java.util.*;
 public class Seller extends User{
-    ArrayList<Property> sellerProperties;
+    private ArrayList<Property> sellerProperties=new ArrayList<>();
+    private ArrayList<Property> salesHistory=new ArrayList<>();
     
     public Seller(String userId,String name,String email,String password,String phoneNo){
         super(userId,name,email,password,phoneNo);
@@ -22,4 +23,121 @@ public class Seller extends User{
     public void setSellerProperties(ArrayList<Property> sellerProperties){
         this.sellerProperties=sellerProperties;
     }
+    
+    public ArrayList<Property> getSalesHistory(){
+        return salesHistory;
+    }
+    public void setSalesHistory(ArrayList<Property> salesHistory){
+        this.salesHistory=salesHistory;
+    }
+    
+    public void displayMenu(){
+        System.out.println("1.Add Property");
+        System.out.println("2.View my Property");
+        System.out.println("3.Update Property");
+        System.out.println("4.Delete Property");
+        System.out.println("5.View Property Request");
+        System.out.println("6.View Sales History");
+        System.out.println("7.Logout");
+    }
+    
+    
+    
+    public void addHouse(ArrayList<Property> propertyList,String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,int rooms,int floors,boolean garageStatus,boolean basementStatus){
+        House h=new House(propertyId,title,location,price,area,isAvailable,rented,rooms,floors,garageStatus,basementStatus);
+        propertyList.add(h);
+        sellerProperties.add(h);
+    }
+    
+    public void addApartment(ArrayList<Property> propertyList,String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,int floorNo,double noOfRooms){
+        Apartment a=new Apartment(propertyId,title,location,price,area,isAvailable,rented,floorNo,noOfRooms);
+        propertyList.add(a);
+        sellerProperties.add(a);
+    }
+    
+    public void addCommercialProperty(ArrayList<Property> propertyList,String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,String businessType,boolean parkingSpace){
+        CommercialProperty c=new CommercialProperty(propertyId,title,location,price,area,isAvailable,rented,businessType,parkingSpace);
+        propertyList.add(c);
+        sellerProperties.add(c);
+    }
+    
+    public void viewMyProperties(){
+        if(sellerProperties.isEmpty()){
+            System.out.println("No Properties.");
+            return;
+        }
+        for(int i=0;i<sellerProperties.size();i++){
+            System.out.println("");
+            sellerProperties.get(i).displayDetails();
+            System.out.println("_____________");
+        }
+            
+    }
+    
+    public void updateHouse(String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,int rooms,int floors,boolean garageStatus,boolean basementStatus){
+        for(int i=0;i<sellerProperties.size();i++){
+            if((sellerProperties.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                if(sellerProperties.get(i).getClass().getSimpleName().equalsIgnoreCase("House")){
+                    sellerProperties.get(i).update(title, location, price, area, isAvailable, rented);
+                    Property p=sellerProperties.get(i);
+                    House h=(House) p;
+                    h.update(rooms, floors, garageStatus, basementStatus);
+                }
+            }
+        }
+    }
+    
+    public void updateApartment(String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,int floorNo,double noOfRooms){
+        for(int i=0;i<sellerProperties.size();i++){
+            if((sellerProperties.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                if(sellerProperties.get(i).getClass().getSimpleName().equalsIgnoreCase("Apartment")){
+                    sellerProperties.get(i).update(title, location, price, area, isAvailable, rented);
+                    Property p=sellerProperties.get(i);
+                    Apartment a=(Apartment) p;
+                    a.update(floorNo, noOfRooms);
+                }
+            }
+        }
+    }
+    
+    public void updateCommercialProperty(String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented,String businessType,boolean parkingSpace){
+        for(int i=0;i<sellerProperties.size();i++){
+            if((sellerProperties.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                if(sellerProperties.get(i).getClass().getSimpleName().equalsIgnoreCase("CommercialProperty")){
+                    sellerProperties.get(i).update(title, location, price, area, isAvailable, rented);
+                    Property p=sellerProperties.get(i);
+                    CommercialProperty c=(CommercialProperty) p;
+                    c.update(businessType, parkingSpace);
+                }
+            }
+        }
+    }
+   
+    
+    public void deleteProperty(ArrayList<Property> propertyList,String propertyId){
+        for(int i=0;i<sellerProperties.size();i++){
+            Property p=sellerProperties.get(i);
+            
+            if(p.getPropertyId().equalsIgnoreCase(propertyId)){
+                sellerProperties.remove(i);
+                propertyList.remove(p);
+                System.out.println("Item Removed");
+                return;
+            }
+        }
+        System.out.println("Item Not Found!");
+    }
+    
+    
+    public void saleHistory(){
+        if(salesHistory.isEmpty()){
+            System.out.println("No Sales History!");
+            return;
+        }
+        for(int i=0;i<salesHistory.size();i++){
+            System.out.println("");
+            salesHistory.get(i).displayDetails();
+            System.out.println("______________");
+        }
+    }   
 }

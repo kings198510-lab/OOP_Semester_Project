@@ -10,11 +10,12 @@ package gui.real_estate_property_management_system;
  */
 import java.util.*;
 public class PropertyManager {
-    private ArrayList<Property> propertyList;
+    private ArrayList<Property> propertyList=new ArrayList<>();
     
     public ArrayList<Property> getPropertyList(){
         return propertyList;
     }
+    
     public void setPropertyList(ArrayList<Property> propertyList){
         this.propertyList=propertyList;
     }

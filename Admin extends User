@@ -8,8 +8,14 @@ package gui.real_estate_property_management_system;
  *
  * @author Shahzeb
  */
+import java.util.*;
 public class Admin extends User{
     private String adminRole;
+    
+    public Admin(String userId,String name,String email,String password,String phoneNo){
+        super(userId,name,email,password,phoneNo);
+        
+    }
     
     public String getAdminRole(){
         return adminRole;
@@ -17,4 +23,65 @@ public class Admin extends User{
     public void setAdminRole(String adminRole){
         this.adminRole=adminRole;
     }
+    
+    public void displayMenu(){
+         System.out.println("1.Manage User(Buyer, Seller, Agent)");
+         System.out.println("2.Manage Properties");
+         System.out.println("3.View Transaction");
+         System.out.println("4.Generate Report");
+         System.out.println("5.Logout");
+    }
+    
+    
+    public void updateProfile(String name,String password,String email,String phoneNo){
+        super.setName(name);
+        super.setPassword(password);
+        super.setEmail(email);
+        super.setPhoneNo(phoneNo);
+    }
+    
+    public void removeUser(ArrayList<User> user,String userId){
+        for(int i=0;i<user.size();i++){
+            if((user.get(i).getUserId()).equalsIgnoreCase(userId)){
+                user.remove(user.get(i));
+                return;
+            }
+        }
+        System.out.println("No User Found!");
+    }
+    
+    public void updateUser(ArrayList<User> user,String userId,String name,String password,String email,String phoneNo){
+        for(int i=0;i<user.size();i++){
+            if((user.get(i).getUserId()).equalsIgnoreCase(userId)){
+                user.get(i).updateProfile(name, password, email, phoneNo);
+                return;
+            }
+        }
+        System.out.println("No User Found!");
+    }
+    
+    public void removeProperty(ArrayList<Property> propertyList,String propertyId){
+        for(int i=0;i<propertyList.size();i++){
+            if((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                propertyList.remove(propertyList.get(i));
+                return;
+            }
+        }
+        System.out.println("No Property Found!");
+    }
+    
+    public void updateProperty(ArrayList<Property> propertyList,String propertyId,String title,String location,double price,double area,boolean isAvailable,boolean rented){
+        for(int i=0;i<propertyList.size();i++){
+            if((propertyList.get(i).getPropertyId()).equalsIgnoreCase(propertyId)){
+                propertyList.get(i).update(title, location, price, area, isAvailable, rented);
+                return;
+            }
+        }
+        System.out.println("No Property Found!");
+    }
+    
+    
+    
+    
+    
 }

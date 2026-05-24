@@ -1,0 +1,103 @@
+package gui.real_estate_property_management_system;
+
+import javafx.application.*;
+import javafx.geometry.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import javafx.scene.text.*;
+import javafx.scene.paint.*;
+import javafx.scene.layout.*;
+
+/**
+ * JavaFX App
+ */
+public class App extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        
+        Label buyerSignup = new Label("Buyer");
+        buyerSignup.setFont(Font.font("Times New Roman",FontWeight.BOLD,35));      
+        buyerSignup.setTextFill(Color.WHITE);
+        
+        Label loginHBSignup = new Label("SignUp");
+        loginHBSignup.setFont(Font.font("Arial",FontWeight.BOLD,24));
+        
+        Label IdBSignup = new Label(" User ID :     ");
+        PasswordField idBSignup = new PasswordField();
+        idBSignup.setMaxWidth(170);
+        
+        
+        Label NameBSignup = new Label("User Name :");
+        TextField nameBSignup = new TextField();
+        nameBSignup.setMaxWidth(170);
+        
+        Label EmailBSignup = new Label("Email :        ");
+        TextField emailBSignup = new TextField();
+        emailBSignup.setMaxWidth(170);
+        
+        Label PassBSignup = new Label("Password :  ");
+        PasswordField passBSignup = new PasswordField();
+        passBSignup.setMaxWidth(170);
+        
+        Label PhoneBSignup = new Label("Phone No : ");
+        PasswordField phoneBSignup = new PasswordField();
+        phoneBSignup.setMaxWidth(170);
+        
+        Button createBSignup = new Button("Sign UP");
+        createBSignup.setMaxWidth(220);
+        createBSignup.setPadding(new Insets(9));
+        createBSignup.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        HBox TopBSignup = new HBox();
+        TopBSignup.getChildren().addAll(buyerSignup);
+        TopBSignup.setStyle("-fx-background-color: #4682B4");
+        TopBSignup.setAlignment(Pos.CENTER);
+        TopBSignup.setPadding(new Insets(15));
+        
+        HBox id_BSignup = new HBox(10);
+        id_BSignup.getChildren().addAll(IdBSignup,idBSignup);
+        id_BSignup.setAlignment(Pos.CENTER);
+        
+        HBox name_BSignup = new HBox(10);
+        name_BSignup.getChildren().addAll(NameBSignup,nameBSignup);
+        name_BSignup.setAlignment(Pos.CENTER);
+        
+        HBox email_BSignup = new HBox(10);
+        email_BSignup.getChildren().addAll(EmailBSignup,emailBSignup);
+        email_BSignup.setAlignment(Pos.CENTER);
+        
+        HBox pass_BSignup = new HBox(10);
+        pass_BSignup.getChildren().addAll(PassBSignup,passBSignup);
+        pass_BSignup.setAlignment(Pos.CENTER);
+        
+        HBox phone_BSignup = new HBox(10);
+        phone_BSignup.getChildren().addAll(PhoneBSignup,phoneBSignup);
+        phone_BSignup.setAlignment(Pos.CENTER);
+        
+        VBox FormBSignup = new VBox(20);
+        FormBSignup.getChildren().addAll(loginHBSignup,id_BSignup,name_BSignup,email_BSignup,pass_BSignup,phone_BSignup,createBSignup);
+        FormBSignup.setAlignment(Pos.TOP_CENTER);
+        FormBSignup.setPadding(new Insets(30,0,20,0));
+        FormBSignup.setMaxWidth(300);
+        FormBSignup.setMaxHeight(340);
+        FormBSignup.setStyle("-fx-background-color: white;" + "-fx-border-color: black;" + "-fx-border-width: 2;" + "-fx-border-radius: 20;" + "-fx-background-radius: 20;");
+        
+        BorderPane root = new BorderPane();
+        root.setTop(TopBSignup);
+        root.setCenter(FormBSignup);
+        
+        Scene scene=new Scene(root,900,500);
+        stage.setScene(scene);
+        stage.setTitle("Real Estate Management System");   
+        stage.show();
+        
+        
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+}

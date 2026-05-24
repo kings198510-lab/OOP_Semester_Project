@@ -1,0 +1,103 @@
+package gui.real_estate_property_management_system;
+
+import javafx.application.*;
+import javafx.geometry.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import javafx.scene.text.*;
+import javafx.scene.paint.*;
+import javafx.scene.layout.*;
+
+/**
+ * JavaFX App
+ */
+public class App extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        
+        Label adminSignup = new Label("Admin");
+        adminSignup.setFont(Font.font("Times New Roman",FontWeight.BOLD,35));      
+        adminSignup.setTextFill(Color.WHITE);
+        
+        Label loginHASignup = new Label("SignUp");
+        loginHASignup.setFont(Font.font("Arial",FontWeight.BOLD,24));
+        
+        Label IdASignup = new Label(" User ID :     ");
+        PasswordField idASignup = new PasswordField();
+        idASignup.setMaxWidth(170);
+        
+       
+        Label NameASignup = new Label("User Name :");
+        TextField nameASignup = new TextField();
+        nameASignup.setMaxWidth(170);
+        
+        Label EmailASignup = new Label("Email :        ");
+        TextField emailASignup = new TextField();
+        emailASignup.setMaxWidth(170);
+        
+        Label PassASignup = new Label("Password :  ");
+        PasswordField passASignup = new PasswordField();
+        passASignup.setMaxWidth(170);
+        
+        Label PhoneASignup = new Label("Phone No : ");
+        PasswordField phoneASignup = new PasswordField();
+        phoneASignup.setMaxWidth(170);
+        
+        Button createASignup = new Button("Sign UP");
+        createASignup.setMaxWidth(220);
+        createASignup.setPadding(new Insets(9));
+        createASignup.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        HBox TopASignup = new HBox();
+        TopASignup.getChildren().addAll(adminSignup);
+        TopASignup.setStyle("-fx-background-color: #4682B4");
+        TopASignup.setAlignment(Pos.CENTER);
+        TopASignup.setPadding(new Insets(15));
+        
+        HBox id_ASignup = new HBox(10);
+        id_ASignup.getChildren().addAll(IdASignup,idASignup);
+        id_ASignup.setAlignment(Pos.CENTER);
+        
+        HBox name_ASignup = new HBox(10);
+        name_ASignup.getChildren().addAll(NameASignup,nameASignup);
+        name_ASignup.setAlignment(Pos.CENTER);
+        
+        HBox email_ASignup = new HBox(10);
+        email_ASignup.getChildren().addAll(EmailASignup,emailASignup);
+        email_ASignup.setAlignment(Pos.CENTER);
+        
+        HBox pass_ASignup = new HBox(10);
+        pass_ASignup.getChildren().addAll(PassASignup,passASignup);
+        pass_ASignup.setAlignment(Pos.CENTER);
+        
+        HBox phone_ASignup = new HBox(10);
+        phone_ASignup.getChildren().addAll(PhoneASignup,phoneASignup);
+        phone_ASignup.setAlignment(Pos.CENTER);
+        
+        VBox FormASignup = new VBox(20);
+        FormASignup.getChildren().addAll(loginHASignup,id_ASignup,name_ASignup,email_ASignup,pass_ASignup,phone_ASignup,createASignup);
+        FormASignup.setAlignment(Pos.TOP_CENTER);
+        FormASignup.setPadding(new Insets(30,0,20,0));
+        FormASignup.setMaxWidth(300);
+        FormASignup.setMaxHeight(340);
+        FormASignup.setStyle("-fx-background-color: white;" + "-fx-border-color: black;" + "-fx-border-width: 2;" + "-fx-border-radius: 20;" + "-fx-background-radius: 20;");
+        
+        BorderPane root = new BorderPane();
+        root.setTop(TopASignup);
+        root.setCenter(FormASignup);
+        
+        Scene scene=new Scene(root,900,500);
+        stage.setScene(scene);
+        stage.setTitle("Real Estate Management System");   
+        stage.show();
+        
+        
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+}

@@ -1,0 +1,72 @@
+package gui.real_estate_property_management_system;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.*;
+
+/**
+ *
+ * @author falcon
+ */
+public class SellerDashBoardUI {
+    public void show(Stage stage){
+        Label seller = new Label("Seller DashBoard");
+        seller.setFont(Font.font("Times New Roman",FontWeight.BOLD,35));
+        seller.setTextFill(Color.WHITE);
+        
+        Button addProperty=new Button("Add Property");
+        addProperty.setMaxWidth(220);
+        addProperty.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        Button viewProperty=new Button("View My Propetry");
+        viewProperty.setMaxWidth(220);
+        viewProperty.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        Button updateProperty=new Button("Update Property");
+        updateProperty.setMaxWidth(220);
+        updateProperty.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        Button deleteProperty=new Button("Delete Property");
+        deleteProperty.setMaxWidth(220);
+        deleteProperty.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        Button salesReport=new Button("View Sales Report");
+        salesReport.setMaxWidth(220);
+        salesReport.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        Button logout=new Button("Logout");
+        logout.setMaxWidth(220);
+        logout.setStyle("-fx-background-radius: 100;"+"-fx-border-color: black;"+"-fx-border-radius: 100;");
+        
+        HBox topBox = new HBox();
+        topBox.getChildren().addAll(seller);
+        topBox.setStyle("-fx-background-color: #4682B4");
+        topBox.setAlignment(Pos.CENTER);
+        topBox.setPadding(new Insets(15));
+        
+        VBox formBox = new VBox(20);
+        formBox.getChildren().addAll(addProperty,viewProperty,updateProperty,deleteProperty,salesReport,logout);
+        formBox.setAlignment(Pos.TOP_CENTER);
+        formBox.setPadding(new Insets(30,0,20,0));
+        formBox.setMaxWidth(300);
+        formBox.setMaxHeight(340);
+        formBox.setStyle("-fx-background-color: white;" + "-fx-border-color: black;" + "-fx-border-width: 2;" + "-fx-border-radius: 20;" + "-fx-background-radius: 20;");
+        
+        BorderPane root = new BorderPane();
+        root.setTop(topBox);
+        root.setCenter(formBox);
+        
+        Scene scene=new Scene(root,900,500);
+        stage.setScene(scene);
+        stage.setTitle("Real Estate Management System");   
+        stage.show();
+    }
+}
